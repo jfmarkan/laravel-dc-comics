@@ -18,13 +18,11 @@ return new class extends Migration
             $table->id();
             $table->string('title', 100);
             $table->mediumText('description');
-            $table->string('thumb');
-            $table->float('price');
-            $table->tinyText('series');
+            $table->mediumText('thumb');
+            $table->tinyText('price', 4, 2);
+            $table->string('series');
             $table->date('sale_date');
             $table->string('type');
-            $table->mediumText('artists');
-            $table->mediumText('writers');
             $table->timestamps();
         });
     }
