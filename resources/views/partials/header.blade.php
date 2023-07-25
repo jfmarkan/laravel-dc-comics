@@ -16,7 +16,12 @@
                 <a class="nav-link" href="{{ route('guest.comics.index') }}">
                     Comics
                 </a>
-                <a class="nav-link" href="{{ route('admin.comics.index') }}">Comics as Admin</a>
+                <a class="nav-link" href="{{ route('admin.comics.index') }}">
+                    Comics as Admin
+                </a>
+                <a class="nav-link" href="{{ route('admin.comics.create') }}">
+                    Add new Comic
+                </a>
             </div>
             </div>
         </div>
