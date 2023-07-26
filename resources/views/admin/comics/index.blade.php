@@ -44,7 +44,7 @@
                                         View
                                     </a>
                                     <a class="btn btn-sm btn-success me-2"
-                                        href="{{ route('admin.comics.show', $comic->id) }}">
+                                        href="{{ route('admin.comics.edit ', $comic->id) }}">
                                         Edit
                                     </a>
                                     <form action="" class="d-inline">
