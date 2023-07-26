@@ -6,12 +6,12 @@
     <div class="container">
         <div class="comic-container mt-5">
             @foreach ($comicList as $comic)
-            <article class="col-2">
+            <article class="col-2 self-align-top">
                 <div>
                     <img src="{{ $comic['thumb'] }}" alt="$comic['title']'s Poster">
                 </div>
                 <div>
-                    <p>{{ $comic['title'] }}</p>
+                    <p>{{ Str::limit($comic['title'], 20) }}</p>
                 </div>
             </article>
             @endforeach

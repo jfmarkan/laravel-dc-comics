@@ -97,7 +97,7 @@ div.comic-container{
         img{
             width: 100%;
             height: calc(100vw / 9);
-
+            object-fit: cover;
             margin-bottom: 1rem;
         }
 
