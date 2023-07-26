@@ -12,7 +12,6 @@
 /* BACKGROUND COLOURS */
 $grey-bg: #303030;
 $blue-bg: #0282f9;
-$dark-bg: #1c1c1c;
 
 /* TEXT HIGHLIGHT */
 $blue-highlight: #0282f9;
@@ -75,13 +74,11 @@ left: 50%;
 }
 
 main{
-    background-color: $dark-bg;
     position: relative;
 
     .indicator{
         background-color: $blue-bg;
         position: absolute;
-        color: #FFF;
         padding: .5rem 1rem;
         transform: translate(-50%, -50%);
         top: 400px;
@@ -91,7 +88,7 @@ main{
 
 div.comic-container{
     @include d-flex;
-    color: #FFF;
+    color: #000;
     
     article{
         width: calc((100vw / 9) - 20px);
@@ -105,7 +102,6 @@ div.comic-container{
         }
 
         p{
-            color: #FFF;
             font-size: .9rem;
         }
     }
