@@ -22,6 +22,9 @@
                     <a class="nav-link" href="{{ route('admin.comics.create') }}">
                         Add new Comic
                     </a>
+                    <a class="nav-link" href="{{ route('admin.comics.bin') }}">
+                        Deleted Comics
+                    </a>
                 </div>
             </div>
         </div>

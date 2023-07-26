@@ -2,6 +2,10 @@
 
 @section('title', 'Admin Index')
 
+@section('custom-stylesheets')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"
+@endsection
+
 @section('main-content')
     <div class="container">
         <div class="row">
@@ -30,26 +34,21 @@
                                     {{ $comic->id }}
                                 </th>
                                 <td>
-                                    {{ $comic->title  }}
+                                    {{ $comic->title }}
                                 </td>
                                 <td>
-                                    {{ $comic->series  }}
+                                    {{ $comic->series }}
                                 </td>
                                 <td>
-                                    {{ $comic->sale_date  }}
+                                    {{ $comic->sale_date }}
                                 </td>
                                 <td class="text-center">
-                                    <a class="btn btn-sm btn-primary me-2"
-                                        href="{{ route('admin.comics.show', $comic->id) }}">
-                                        View
-                                    </a>
-                                    <a class="btn btn-sm btn-success me-2"
-                                        href="{{ route('admin.comics.show', $comic->id) }}">
-                                        Edit
-                                    </a>
-                                    <form action="" class="d-inline">
+                                    <form action="{{route('admin.comics.restore', $comic->id)}}" class="d-inline form-terminator" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+
                                         <button class="btn btn-warning btn-sm">
-                                            Remove
+                                            <i class="fa-solid fa-trash-arrow-up"></i>
                                         </button>
                                     </form>
                                 </td>
@@ -63,4 +62,24 @@
             {!! $comicList->links() !!}
         </div>
     </div>
+@endsection
+
+@section('custom-scripts-tail')
+    <script>
+        // intercettare un evento
+        // individuare l'elemento che faccia triggerare il nostro evento
+        // bloccare il comportamento naturale del nostro bottone/form
+        // chiedere all'utente cosa vuole fare
+        // se l'utente conferma allora cancellare, altrimenti non fare nulla
+        const deleteFormElements = document.querySelectorAll('form.form-terminator');
+        deleteFormElements.forEach(formElement => {
+            formElement.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const userConfirm = window.confirm('Are you sure you want to restore this Comic?');
+                if (userConfirm){
+                    this.submit();
+                }
+            });
+        });
+    </script>
 @endsection

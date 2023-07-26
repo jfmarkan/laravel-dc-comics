@@ -45,7 +45,7 @@ class ComicController extends Controller
 
         $newComic->save();
 
-        return redirect()->route('admin.comics.show', $newComic->id);
+        return redirect()->route('admin.comics.index', $newComic->id)->with('created', $newComic->title);
     }
 
     /**
@@ -95,8 +95,23 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Int $id)
     {
-        //
+        $comic = Comic::findOrFail($id);
+
+        $comic->delete();
+        return redirect()->route('admin.comics.index')->with('deleted', $comic->title);
+    }
+
+    public function bin(){
+        $comicList = Comic::onlyTrashed()->paginate(10);
+        return view('admin.comics.bin', compact('comicList'));
+    }
+
+    public function restore(Int $id){
+        $comic = Comic::withTrashed()->findOrFail($id);
+
+        $comic->restore();
+        return redirect()->route('admin.comics.index')->with('restored', $comic->title);
     }
 }

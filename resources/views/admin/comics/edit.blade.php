@@ -2,6 +2,10 @@
 
 @section('title', 'Admin Add New')
 
+@section('custom-stylesheets')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+@endsection
+
 @section('main-content')
     <div class="container">
         <div class="row justify-content-around">
@@ -72,11 +76,11 @@
                     <input type="text" class="form-control" id="writers" name="writers" value='{{ $comic->writers }}'>
                 </div>
                 <button type="submit" class="btn btn-success">
-                    Save Changes
+                    <i class="fa-solid fa-check"></i>
                 </button>
-                <button type="reset" class="btn btn-danger">
-                    Cancel
-                </button>
+                <a href="{{ route('admin.comics.index')}}" class="btn btn-danger">
+                    <i class="fa-solid fa-xmark"></i>
+                </a>
             </form>
         </div>
     </div>
