@@ -9,20 +9,20 @@
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link" aria-current="page" href="{{ route('guest.home') }}">
-                    Homepage
-                </a>
-                <a class="nav-link" href="{{ route('guest.comics.index') }}">
-                    Comics
-                </a>
-                <a class="nav-link" href="{{ route('admin.comics.index') }}">
-                    Comics as Admin
-                </a>
-                <a class="nav-link" href="{{ route('admin.comics.create') }}">
-                    Add new Comic
-                </a>
-            </div>
+                <div class="navbar-nav">
+                    <a class="nav-link" aria-current="page" href="{{ route('guest.home') }}">
+                        Homepage
+                    </a>
+                    <a class="nav-link" href="{{ route('guest.comics.index') }}">
+                        Comics
+                    </a>
+                    <a class="nav-link" href="{{ route('admin.comics.index') }}">
+                        Comics as Admin
+                    </a>
+                    <a class="nav-link" href="{{ route('admin.comics.create') }}">
+                        Add new Comic
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
